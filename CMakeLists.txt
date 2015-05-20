@@ -121,6 +121,11 @@ IF(APPLE)
 ENDIF(APPLE)
 
 ####### DEPENDENCIES #######
+find_package(octomap REQUIRED)
+include_directories(BEFORE ${OCTOMAP_INCLUDE_DIRS})
+link_directories(${OCTOMAP_LIBRARY_DIRS})
+link_libraries(${OCTOMAP_LIBRARIES})
+
 FIND_PACKAGE(OpenCV REQUIRED)
 IF(OPENCV_NONFREE_FOUND)
   SET(NONFREE 1)

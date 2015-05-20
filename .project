@@ -1,82 +1,1537 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>rtabmap</name>
+	<name>RTABMap-Release@rtabmap</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<name>org.eclipse.cdt.make.core.makeBuilder</name>
 			<triggers>clean,full,incremental,</triggers>
 			<arguments>
 				<dictionary>
-					<key>?name?</key>
-					<value></value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.append_environment</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.autoBuildTarget</key>
-					<value>all</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildArguments</key>
-					<value>-j4 -C ${ProjDirPath}/build VERBOSE=true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildCommand</key>
-					<value>make</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc:/RTAB-Map}</value>
-				</dictionary>
-				<dictionary>
 					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>
 					<value>clean</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.contents</key>
-					<value>org.eclipse.cdt.make.core.activeConfigSettings</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableAutoBuild</key>
-					<value>false</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.enableCleanBuild</key>
 					<value>true</value>
 				</dictionary>
 				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableFullBuild</key>
+					<key>org.eclipse.cdt.make.core.append_environment</key>
 					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.fullBuildTarget</key>
-					<value>all</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.stopOnError</key>
 					<value>true</value>
 				</dictionary>
 				<dictionary>
+					<key>org.eclipse.cdt.make.core.enabledIncrementalBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.command</key>
+					<value>/usr/bin/make</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.contents</key>
+					<value>org.eclipse.cdt.make.core.activeConfigSettings</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.inc</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.arguments</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildLocation</key>
+					<value>/home/ermano/Projects/rtabmap</value>
+				</dictionary>
+				<dictionary>
 					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
 					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.environment</key>
+					<value>VERBOSE=1|CMAKE_NO_VERBOSE=1|</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableFullBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.auto</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableAutoBuild</key>
+					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.clean</key>
+					<value>clean</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.fullBuildTarget</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildArguments</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.location</key>
+					<value>/home/ermano/Projects/rtabmap</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.autoBuildTarget</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.core.errorOutputParser</key>
+					<value>org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<name>org.eclipse.cdt.make.core.ScannerConfigBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.cdt.core.cnature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
-		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
-		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+		<nature>org.eclipse.cdt.make.core.makeNature</nature>
+		<nature>org.eclipse.cdt.make.core.ScannerConfigNature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>[Subprojects]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UEventsManager.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UEventsManager.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UEventsHandler.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UEventsHandler.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UEventsSender.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UEventsSender.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UFile.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UFile.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UDirectory.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UDirectory.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UConversion.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UConversion.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/ULogger.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/ULogger.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UThread.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UThread.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UTimer.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UTimer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Source Files/UProcessInfo.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/src/UProcessInfo.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_utilite/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] uresourcegenerator</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] uresourcegenerator/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] uresourcegenerator/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] uresourcegenerator/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/utilite/resource_generator/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] uresourcegenerator/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] uresourcegenerator/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] uresourcegenerator/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Rtabmap.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Rtabmap.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/RtabmapThread.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/RtabmapThread.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Statistics.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Statistics.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Memory.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Memory.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/DBDriver.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/DBDriver.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/DBDriverSqlite3.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/DBDriverSqlite3.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/DBReader.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/DBReader.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Camera.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Camera.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/CameraThread.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/CameraThread.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/CameraRGBD.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/CameraRGBD.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/CameraModel.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/CameraModel.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/EpipolarGeometry.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/EpipolarGeometry.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/VisualWord.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/VisualWord.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/VWDictionary.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/VWDictionary.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/BayesFilter.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/BayesFilter.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Parameters.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Parameters.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Signature.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Signature.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Features2d.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Features2d.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Transform.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Transform.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util2d.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util2d.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_filtering.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_filtering.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_mapping.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_mapping.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_transforms.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_transforms.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_registration.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_registration.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_surface.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_surface.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_features.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_features.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_correspondences.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_correspondences.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/util3d_conversions.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/util3d_conversions.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/SensorData.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/SensorData.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Graph.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Graph.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Compression.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Compression.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/OcTreeDynamicMap.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/OcTreeDynamicMap.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/Odometry.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/Odometry.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/OdometryThread.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/OdometryThread.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/OdometryBOW.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/OdometryBOW.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/OdometryOpticalFlow.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/OdometryOpticalFlow.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/OdometryMono.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/OdometryMono.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/OdometryICP.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/OdometryICP.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/posegraph3.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/toro3d/posegraph3.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/treeoptimizer3_iteration.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/toro3d/treeoptimizer3_iteration.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/treeoptimizer3.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/toro3d/treeoptimizer3.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/posegraph2.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/toro3d/posegraph2.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/treeoptimizer2.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/toro3d/treeoptimizer2.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Source Files/sqlite3.c</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/sqlite3/sqlite3.c</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Header Files/DatabaseSchema_sql.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/DatabaseSchema_sql.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/CMake Rules/DatabaseSchema_sql.h.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/corelib/src/DatabaseSchema_sql.h.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_core/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//mainWindow.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/mainWindow.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//preferencesDialog.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/preferencesDialog.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//aboutDialog.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/aboutDialog.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//consoleWidget.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/consoleWidget.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//DatabaseViewer.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/DatabaseViewer.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//loopClosureViewer.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/loopClosureViewer.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//exportDialog.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/exportDialog.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//postProcessingDialog.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/postProcessingDialog.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//exportCloudsDialog.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/exportCloudsDialog.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//calibrationDialog.ui</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui/calibrationDialog.ui</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui//GuiLib.qrc</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/GuiLib.qrc</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/MainWindow.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/MainWindow.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/PreferencesDialog.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/PreferencesDialog.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/KeypointItem.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/KeypointItem.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/ImageView.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ImageView.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/PdfPlot.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/PdfPlot.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/StatsToolBox.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/StatsToolBox.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/DetailedProgressDialog.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/DetailedProgressDialog.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/AboutDialog.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/AboutDialog.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/ConsoleWidget.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ConsoleWidget.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/DatabaseViewer.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/DatabaseViewer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/UPlot.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/utilite/UPlot.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/CloudViewer.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/CloudViewer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/OdometryViewer.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/OdometryViewer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/LoopClosureViewer.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/LoopClosureViewer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/DataRecorder.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/DataRecorder.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/CameraViewer.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/CameraViewer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/CalibrationDialog.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/CalibrationDialog.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/ExportDialog.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ExportDialog.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/PostProcessingDialog.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/PostProcessingDialog.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/ExportCloudsDialog.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ExportCloudsDialog.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/MapVisibilityWidget.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/MapVisibilityWidget.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/GraphViewer.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/GraphViewer.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_MainWindow.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_MainWindow.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_PreferencesDialog.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_PreferencesDialog.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_DatabaseViewer.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_DatabaseViewer.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_AboutDialog.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_AboutDialog.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_ConsoleWidget.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_ConsoleWidget.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_ImageView.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_ImageView.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_PdfPlot.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_PdfPlot.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_StatsToolBox.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_StatsToolBox.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_DetailedProgressDialog.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_DetailedProgressDialog.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_UPlot.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/utilite/moc_UPlot.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_UImageView.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/utilite/moc_UImageView.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_CloudViewer.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_CloudViewer.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_OdometryViewer.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_OdometryViewer.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_LoopClosureViewer.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_LoopClosureViewer.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_DataRecorder.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_DataRecorder.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_CameraViewer.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_CameraViewer.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_CalibrationDialog.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_CalibrationDialog.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_ExportDialog.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_ExportDialog.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_PostProcessingDialog.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_PostProcessingDialog.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_ExportCloudsDialog.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_ExportCloudsDialog.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_MapVisibilityWidget.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_MapVisibilityWidget.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/moc_GraphViewer.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_GraphViewer.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Source Files/qrc_GuiLib.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/qrc_GuiLib.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_mainWindow.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_mainWindow.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_preferencesDialog.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_preferencesDialog.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_aboutDialog.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_aboutDialog.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_consoleWidget.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_consoleWidget.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_DatabaseViewer.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_DatabaseViewer.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_loopClosureViewer.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_loopClosureViewer.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_exportDialog.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_exportDialog.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_postProcessingDialog.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_postProcessingDialog.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_exportCloudsDialog.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_exportCloudsDialog.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Header Files/ui_calibrationDialog.h</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/ui_calibrationDialog.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_MainWindow.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_MainWindow.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_PreferencesDialog.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_PreferencesDialog.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_DatabaseViewer.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_DatabaseViewer.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_AboutDialog.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_AboutDialog.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_ConsoleWidget.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_ConsoleWidget.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_ImageView.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_ImageView.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_PdfPlot.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_PdfPlot.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_StatsToolBox.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_StatsToolBox.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_DetailedProgressDialog.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_DetailedProgressDialog.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_UPlot.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/utilite/moc_UPlot.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_UImageView.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/utilite/moc_UImageView.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_CloudViewer.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_CloudViewer.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_OdometryViewer.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_OdometryViewer.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_LoopClosureViewer.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_LoopClosureViewer.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_DataRecorder.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_DataRecorder.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_CameraViewer.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_CameraViewer.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_CalibrationDialog.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/__/include/rtabmap/gui/moc_CalibrationDialog.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_ExportDialog.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_ExportDialog.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_PostProcessingDialog.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_PostProcessingDialog.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_ExportCloudsDialog.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_ExportCloudsDialog.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_MapVisibilityWidget.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_MapVisibilityWidget.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/CMake Rules/moc_GraphViewer.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/guilib/src/moc_GraphViewer.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] rtabmap_gui/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/app/src/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/Source Files/moc_ObjDeletionHandler.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/app/src/moc_ObjDeletionHandler.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/CMake Rules/moc_ObjDeletionHandler.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/app/src/moc_ObjDeletionHandler.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rtabmap/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] consoleApp</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] consoleApp/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] consoleApp/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] consoleApp/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/ConsoleApp/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] consoleApp/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] consoleApp/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] consoleApp/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] imagesJoiner</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] imagesJoiner/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] imagesJoiner/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] imagesJoiner/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/ImagesJoiner/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] imagesJoiner/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] imagesJoiner/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] imagesJoiner/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] extractObject</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] extractObject/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] extractObject/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] extractObject/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/ExtractObject/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] extractObject/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] extractObject/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] extractObject/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] camera</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] camera/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] camera/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] camera/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/Camera/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] camera/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] camera/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] camera/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_camera</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_camera/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_camera/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_camera/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/CameraRGBD/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_camera/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_camera/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_camera/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] vocabularyComparison</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] vocabularyComparison/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] vocabularyComparison/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] vocabularyComparison/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/VocabularyComparison/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] vocabularyComparison/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] vocabularyComparison/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] vocabularyComparison/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] databaseViewer</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] databaseViewer/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] databaseViewer/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] databaseViewer/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/DatabaseViewer/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] databaseViewer/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] databaseViewer/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] databaseViewer/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] epipolar_geometry</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] epipolar_geometry/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] epipolar_geometry/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] epipolar_geometry/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/EpipolarGeometry/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] epipolar_geometry/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] epipolar_geometry/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] epipolar_geometry/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] odometryViewer</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] odometryViewer/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] odometryViewer/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] odometryViewer/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/OdometryViewer/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] odometryViewer/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] odometryViewer/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] odometryViewer/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] dataRecorder</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] dataRecorder/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] dataRecorder/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] dataRecorder/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/DataRecorder/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] dataRecorder/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] dataRecorder/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] dataRecorder/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] calibration</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] calibration/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] calibration/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] calibration/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/tools/Calibration/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] calibration/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] calibration/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] calibration/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] bow_mapping</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] bow_mapping/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] bow_mapping/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] bow_mapping/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/BOWMapping/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] bow_mapping/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] bow_mapping/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] bow_mapping/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/RGBDMapping/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/Source Files/moc_MapBuilder.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/RGBDMapping/moc_MapBuilder.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/CMake Rules/moc_MapBuilder.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/RGBDMapping/moc_MapBuilder.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] rgbd_mapping/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/WifiMapping/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/Source Files/moc_MapBuilder.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/WifiMapping/__/RGBDMapping/moc_MapBuilder.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/Source Files/moc_MapBuilderWifi.cxx</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/WifiMapping/moc_MapBuilderWifi.cxx</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/CMake Rules/moc_MapBuilder.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/WifiMapping/__/RGBDMapping/moc_MapBuilder.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/CMake Rules/moc_MapBuilderWifi.cxx.rule</name>
+			<type>1</type>
+			<location>/home/ermano/Projects/rtabmap/examples/WifiMapping/moc_MapBuilderWifi.cxx.rule</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] wifi_mapping/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

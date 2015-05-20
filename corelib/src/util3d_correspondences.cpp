@@ -28,6 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "rtabmap/core/util3d_correspondences.h"
 #include "rtabmap/core/util3d.h"
 
+
 #include <rtabmap/utilite/UStl.h>
 #include <rtabmap/core/EpipolarGeometry.h>
 #include <opencv2/calib3d/calib3d.hpp>
@@ -369,6 +370,78 @@ void findCorrespondences(
 		{
 			inliers1[oi] = words1.find(*iter)->second;
 			inliers2[oi] = words2.find(*iter)->second;
+			if(pcl::isFinite(inliers1[oi]) &&
+			   pcl::isFinite(inliers2[oi]) &&
+			   (inliers1[oi].x != 0 || inliers1[oi].y != 0 || inliers1[oi].z != 0) &&
+			   (inliers2[oi].x != 0 || inliers2[oi].y != 0 || inliers2[oi].z != 0) &&
+			   (maxDepth <= 0 || (inliers1[oi].x > 0 && inliers1[oi].x <= maxDepth && inliers2[oi].x>0 &&inliers2[oi].x<=maxDepth)))
+			{
+				++oi;
+				if(uniqueCorrespondences)
+				{
+					uniqueCorrespondences->insert(*iter);
+				}
+			}
+		}
+	}
+	inliers1.resize(oi);
+	inliers2.resize(oi);
+}
+
+void RTABMAP_EXP findCorrespondencesWithOctree(
+		octomap::OcTreeDynamic *tree,
+		const std::multimap<int, pcl::PointXYZ> & words1,
+		const std::multimap<int, pcl::PointXYZ> & words2,
+		pcl::PointCloud<pcl::PointXYZ> & inliers1,
+		pcl::PointCloud<pcl::PointXYZ> & inliers2,
+		float maxDepth,
+		std::set<int> * uniqueCorrespondences)
+{
+	std::list<int> ids = uUniqueKeys(words1);
+	// Find pairs
+	inliers1.resize(ids.size());
+	inliers2.resize(ids.size());
+
+	int oi=0;
+	octomap::OcTreeNode* voxelA = NULL;
+	octomap::OcTreeNode* voxelB = NULL;
+	for(std::list<int>::iterator iter=ids.begin(); iter!=ids.end(); ++iter)
+	{
+		if(words1.count(*iter) == 1 && words2.count(*iter) == 1)
+		{
+			inliers1[oi] = words1.find(*iter)->second;
+			inliers2[oi] = words2.find(*iter)->second;
+
+			voxelA = tree->search(octomap::point3d(inliers1[oi].x,inliers1[oi].y,inliers1[oi].z));
+			voxelB = tree->search(octomap::point3d(inliers1[oi].x,inliers1[oi].y,inliers1[oi].z));
+
+			//if( !voxel ){
+			//	UINFO("Null voxel!");
+			//	continue;
+			//}
+
+			if( voxelA && voxelB ){
+				UINFO("Voxar: VoxelA Occupancy %lf VoxelB Occupancy %lf ",voxelA->getOccupancy(),voxelB->getOccupancy());
+				//int d;
+				//scanf("alou %d",&d);
+				//continue;
+				double err = voxelA->getOccupancy()-voxelB->getOccupancy();
+				err = err < 0 ? -err : err;
+
+				if(  err > 0.01 || voxelA->getOccupancy() <= 0.95 )
+				{
+					UINFO("Voxar: Err %lf Voxel DISCARDED ##############################",err);
+
+					continue;
+				}
+			}
+			else
+			{
+				UINFO("Voxar: NULL VOXEL ############# ");
+			}
+
+
+
 			if(pcl::isFinite(inliers1[oi]) &&
 			   pcl::isFinite(inliers2[oi]) &&
 			   (inliers1[oi].x != 0 || inliers1[oi].y != 0 || inliers1[oi].z != 0) &&

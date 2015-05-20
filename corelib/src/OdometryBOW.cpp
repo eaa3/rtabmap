@@ -49,7 +49,7 @@ namespace rtabmap {
 OdometryBOW::OdometryBOW(const ParametersMap & parameters) :
 	Odometry(parameters),
 	_localHistoryMaxSize(Parameters::defaultOdomBowLocalHistorySize()),
-	_memory(0)
+	_memory(0), tree(new octomap::OcTreeDynamic(0.1))
 {
 	Parameters::parse(parameters, Parameters::kOdomBowLocalHistorySize(), _localHistoryMaxSize);
 
@@ -111,6 +111,8 @@ OdometryBOW::OdometryBOW(const ParametersMap & parameters) :
 OdometryBOW::~OdometryBOW()
 {
 	delete _memory;
+	tree->writeBinary("localMapOctree.bt");
+	delete tree;
 	UDEBUG("");
 }
 
@@ -282,7 +284,8 @@ Transform OdometryBOW::computeTransform(
 						// Also! the localMap_ have points not in camera frame anymore (in local map frame), so filtering
 						// by depth here is wrong!
 						std::set<int> uniqueCorrespondences;
-						util3d::findCorrespondences(
+						util3d::findCorrespondencesWithOctree(
+								tree,
 								localMap_,
 								newSignature->getWords3(),
 								*inliers1,
@@ -364,6 +367,10 @@ Transform OdometryBOW::computeTransform(
 					_memory->deleteLocation(nodeId, &removedPts);
 					for(std::list<int>::iterator iter = removedPts.begin(); iter!=removedPts.end(); ++iter)
 					{
+						pcl::PointXYZ pt = localMap_.find(*iter)->second;
+						UINFO("Removing point %f %f %f",pt.x, pt.y, pt.z );
+
+						tree->deleteNode(octomap::point3d(pt.x, pt.y, pt.z ));
 						localMap_.erase(*iter);
 					}
 				}
@@ -390,6 +397,7 @@ Transform OdometryBOW::computeTransform(
 							{
 								pcl::PointXYZ pt2 = util3d::transformPoint(pt, t);
 								localMap_.insert(std::make_pair(*iter, pt2));
+								tree->updateNode(octomap::point3d(pt2.x,pt2.y,pt2.z), true);
 							}
 						}
 					}
@@ -421,6 +429,7 @@ Transform OdometryBOW::computeTransform(
 						{
 							pcl::PointXYZ pt2 = util3d::transformPoint(pt, t);
 							localMap_.insert(std::make_pair(*iter, pt2));
+							tree->updateNode(octomap::point3d(pt2.x,pt2.y,pt2.z), true);
 						}
 						else
 						{

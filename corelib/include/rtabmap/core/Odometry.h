@@ -28,6 +28,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef ODOMETRY_H_
 #define ODOMETRY_H_
 
+#include "rtabmap/core/OcTreeDynamicMap.h"
+
 #include <rtabmap/core/RtabmapExp.h>
 
 #include <rtabmap/core/Transform.h>
@@ -86,6 +88,7 @@ protected:
 	Odometry(const rtabmap::ParametersMap & parameters);
 };
 
+
 class Memory;
 
 class RTABMAP_EXP OdometryBOW : public Odometry
@@ -107,6 +110,7 @@ private:
 
 	Memory * _memory;
 	std::multimap<int, pcl::PointXYZ> localMap_;
+	octomap::OcTreeDynamic* tree;
 };
 
 class RTABMAP_EXP OdometryOpticalFlow : public Odometry

@@ -678,6 +678,7 @@ int main (int argc, char * argv[])
 			}
 			else
 			{
+				UINFO("Voxar: Creating BOW Odometry");
 				odom = new rtabmap::OdometryBOW(parameters);
 			}
 		}

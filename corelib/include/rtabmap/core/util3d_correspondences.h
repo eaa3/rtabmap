@@ -37,6 +37,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <map>
 #include <list>
 
+#include "rtabmap/utilite/ULogger.h"
+#include "rtabmap/core/OcTreeDynamicMap.h"
+
 namespace rtabmap
 {
 
@@ -50,6 +53,15 @@ void RTABMAP_EXP findCorrespondences(
 		std::list<std::pair<cv::Point2f, cv::Point2f> > & pairs);
 
 void RTABMAP_EXP findCorrespondences(
+		const std::multimap<int, pcl::PointXYZ> & words1,
+		const std::multimap<int, pcl::PointXYZ> & words2,
+		pcl::PointCloud<pcl::PointXYZ> & inliers1,
+		pcl::PointCloud<pcl::PointXYZ> & inliers2,
+		float maxDepth,
+		std::set<int> * uniqueCorrespondences = 0);
+
+void RTABMAP_EXP findCorrespondencesWithOctree(
+		octomap::OcTreeDynamic *tree,
 		const std::multimap<int, pcl::PointXYZ> & words1,
 		const std::multimap<int, pcl::PointXYZ> & words2,
 		pcl::PointCloud<pcl::PointXYZ> & inliers1,
