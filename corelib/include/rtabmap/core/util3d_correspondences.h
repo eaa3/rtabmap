@@ -62,6 +62,7 @@ void RTABMAP_EXP findCorrespondences(
 
 void RTABMAP_EXP findCorrespondencesWithOctree(
 		octomap::OcTreeDynamic *tree,
+		float varThr,
 		const std::multimap<int, pcl::PointXYZ> & words1,
 		const std::multimap<int, pcl::PointXYZ> & words2,
 		pcl::PointCloud<pcl::PointXYZ> & inliers1,

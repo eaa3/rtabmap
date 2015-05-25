@@ -2,7 +2,7 @@
 
 
 namespace octomap {
-
+/*
 unsigned int OcTreeDynamic::getLastUpdateTime() {
     // this value is updated whenever inner nodes are
     // updated using updateOccupancyChildren()
@@ -20,13 +20,15 @@ unsigned int OcTreeDynamic::getLastUpdateTime() {
       }
     }
   }
-
+*/
   void OcTreeDynamic::updateNodeLogOdds(OcTreeNodeDynamic* node, const float& update) const {
     OccupancyOcTreeBase<OcTreeNodeDynamic>::updateNodeLogOdds(node, update);
-    node->updateVariance();
-    node->updateMean();
-    node->updateTimestamp();
+    node->updateParameters();
   }
+
+
+
+
 
   void OcTreeDynamic::integrateMissNoTime(OcTreeNodeDynamic* node) const{
     OccupancyOcTreeBase<OcTreeNodeDynamic>::updateNodeLogOdds(node, prob_miss_log);

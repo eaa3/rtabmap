@@ -4,6 +4,7 @@
 #include <octomap/octomap.h>
 #include <octomap/OcTree.h>
 #include <octomap/Pointcloud.h>
+#include <octomap/math/Utils.h>
 
 
 namespace octomap {
@@ -13,12 +14,12 @@ namespace octomap {
 class OcTreeNodeDynamic : public OcTreeNode {
 
 public:
-	OcTreeNodeDynamic() : OcTreeNode(), variance(0), mean(0), timestamp(0) {}
+	OcTreeNodeDynamic() : OcTreeNode(), mean(0), var(0), timestamp(0) {}
 
-	OcTreeNodeDynamic(const OcTreeNodeDynamic& rhs) : OcTreeNode(rhs), variance(rhs.variance), mean(rhs.mean), timestamp(rhs.timestamp) {}
+	OcTreeNodeDynamic(const OcTreeNodeDynamic& rhs) : OcTreeNode(rhs), timestamp(rhs.timestamp) {}
 
 	bool operator==(const OcTreeNodeDynamic& rhs) const{
-		return (rhs.value == value && rhs.variance == variance && rhs.mean == mean && rhs.timestamp == timestamp);
+		return (rhs.value == value && rhs.timestamp == timestamp);
 	}
 
 	// children
@@ -35,32 +36,37 @@ public:
 		return true;
 	}
 
-	// variance
-	inline unsigned int getVariance() const { return variance; }
-	inline void updateVariance() { /*TODO*/ }
-	inline void setVariance(double variance) {this->variance = variance; }
-
-	// mean
-	inline unsigned int getMean() const { return mean; }
-	inline void updateMean() { /*TODO*/}
-	inline void setMean(double mean) {this->mean = mean; }
-
 	// timestamp
 	inline unsigned int getTimestamp() const { return timestamp; }
-	inline void updateTimestamp() { timestamp = (unsigned int) time(NULL);}
-	inline void setTimestamp(unsigned int timestamp) {this->timestamp = timestamp; }
+
+	float getMean(){
+		return mean;
+	}
+
+	float getVariance(){
+		if( timestamp >= 2 ){
+			return var/(timestamp-1);
+		}
+		else return 0.0;
+	}
+
+	void updateParameters() {
+		timestamp++;
+		float oldMean = mean;
+		mean += (getOccupancy() - mean)/timestamp;
+		var += (getOccupancy()- oldMean)*(getOccupancy() - mean);
+
+	}
 
 	// update occupancy and timesteps of inner nodes
 	inline void updateOccupancyChildren() {
 		this->setLogOdds(this->getMaxChildLogOdds());  // conservative
-		updateVariance();
-		updateMean();
-		updateTimestamp();
-
+		updateParameters();
 	}
 
 protected:
-	double variance, mean;
+	float mean;
+	float var;
 	unsigned int timestamp;
 };
 
@@ -79,9 +85,9 @@ public:
 	std::string getTreeType() const {return "OcTreeDynamic";}
 
 	//! \return timestamp of last update
-	unsigned int getLastUpdateTime();
+	//unsigned int getLastUpdateTime();
 
-	void degradeOutdatedNodes(unsigned int time_thres);
+	//void degradeOutdatedNodes(unsigned int time_thres);
 
 	virtual void updateNodeLogOdds(OcTreeNodeDynamic* node, const float& update) const;
 	void integrateMissNoTime(OcTreeNodeDynamic* node) const;

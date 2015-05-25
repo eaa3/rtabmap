@@ -4,12 +4,12 @@ All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
-    * Redistributions of source code must retain the above copyright
+ * Redistributions of source code must retain the above copyright
       notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
+ * Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer in the
       documentation and/or other materials provided with the distribution.
-    * Neither the name of the Universite de Sherbrooke nor the
+ * Neither the name of the Universite de Sherbrooke nor the
       names of its contributors may be used to endorse or promote products
       derived from this software without specific prior written permission.
 
@@ -23,7 +23,7 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+ */
 
 #include <rtabmap/utilite/ULogger.h>
 #include <rtabmap/utilite/UEventsManager.h>
@@ -123,8 +123,34 @@ int main (int argc, char * argv[])
 	int localHistory = rtabmap::Parameters::defaultOdomBowLocalHistorySize();
 	bool p2p = rtabmap::Parameters::defaultOdomPnPEstimation();
 
+
+	bool useOctree = false;
+	double varianceThr = 0.0;
 	for(int i=1; i<argc; ++i)
 	{
+		if(strcmp(argv[i], "-useOctree") == 0)
+		{
+			i++;
+
+			if( i < argc )
+			{
+				varianceThr = uStr2Float(argv[i]);
+
+
+				if(varianceThr < 0)
+				{
+					showUsage();
+					continue;
+				}
+
+				useOctree = true;
+			}
+			else{
+				showUsage();
+			}
+
+			continue;
+		}
 		if(strcmp(argv[i], "-driver") == 0)
 		{
 			++i;
@@ -680,6 +706,8 @@ int main (int argc, char * argv[])
 			{
 				UINFO("Voxar: Creating BOW Odometry");
 				odom = new rtabmap::OdometryBOW(parameters);
+				static_cast<rtabmap::OdometryBOW*>(odom)->setUseOctree(useOctree);
+				static_cast<rtabmap::OdometryBOW*>(odom)->setVarianceThr(varianceThr);
 			}
 		}
 	}
@@ -718,7 +746,8 @@ int main (int argc, char * argv[])
 
 			camera.start();
 
-			app.exec();
+			//app.exec();
+			odomViewer.exec();
 
 			camera.join(true);
 			odomThread.join(true);

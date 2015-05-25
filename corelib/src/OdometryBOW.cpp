@@ -4,12 +4,12 @@ All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
-    * Redistributions of source code must retain the above copyright
+ * Redistributions of source code must retain the above copyright
       notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
+ * Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer in the
       documentation and/or other materials provided with the distribution.
-    * Neither the name of the Universite de Sherbrooke nor the
+ * Neither the name of the Universite de Sherbrooke nor the
       names of its contributors may be used to endorse or promote products
       derived from this software without specific prior written permission.
 
@@ -23,7 +23,7 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+ */
 
 #include "rtabmap/core/Odometry.h"
 #include "rtabmap/core/OdometryInfo.h"
@@ -38,18 +38,25 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "rtabmap/utilite/UConversion.h"
 #include <opencv2/calib3d/calib3d.hpp>
 
+#include "rtabmap/core/OcTreeDynamicMap.h"
+//#include "octomap/OcTreeStamped.h"
+
+
 #if _MSC_VER
-	#define ISFINITE(value) _finite(value)
+#define ISFINITE(value) _finite(value)
 #else
-	#define ISFINITE(value) std::isfinite(value)
+#define ISFINITE(value) std::isfinite(value)
 #endif
 
 namespace rtabmap {
 
+
+unsigned int count_t = 0;
+
 OdometryBOW::OdometryBOW(const ParametersMap & parameters) :
-	Odometry(parameters),
-	_localHistoryMaxSize(Parameters::defaultOdomBowLocalHistorySize()),
-	_memory(0), tree(new octomap::OcTreeDynamic(0.1))
+																									Odometry(parameters),
+																									_localHistoryMaxSize(Parameters::defaultOdomBowLocalHistorySize()),
+																									_memory(0), tree(new octomap::OcTreeDynamic(0.05)), cameraPositionError(0.0), useOctree(false), varianceThr(0.01)
 {
 	Parameters::parse(parameters, Parameters::kOdomBowLocalHistorySize(), _localHistoryMaxSize);
 
@@ -89,13 +96,13 @@ OdometryBOW::OdometryBOW(const ParametersMap & parameters) :
 	{
 		std::string group = uSplit(iter->first, '/').front();
 		if(group.compare("SURF") == 0 ||
-			group.compare("SIFT") == 0 ||
-			group.compare("BRIEF") == 0 ||
-			group.compare("FAST") == 0 ||
-			group.compare("ORB") == 0 ||
-			group.compare("FREAK") == 0 ||
-			group.compare("GFTT") == 0 ||
-			group.compare("BRISK") == 0)
+				group.compare("SIFT") == 0 ||
+				group.compare("BRIEF") == 0 ||
+				group.compare("FAST") == 0 ||
+				group.compare("ORB") == 0 ||
+				group.compare("FREAK") == 0 ||
+				group.compare("GFTT") == 0 ||
+				group.compare("BRISK") == 0)
 		{
 			customParameters.insert(*iter);
 		}
@@ -111,7 +118,19 @@ OdometryBOW::OdometryBOW(const ParametersMap & parameters) :
 OdometryBOW::~OdometryBOW()
 {
 	delete _memory;
+
 	tree->writeBinary("localMapOctree.bt");
+
+	FILE* f = fopen("treeStats.txt","w");
+	fprintf(f," Sqr Trajectory Error %f NPoses %d\n",cameraPositionError/count_t,count_t);
+	for(octomap::OcTreeDynamic::leaf_iterator it = tree->begin(), end=tree->end(); it!= end; ++it) {
+		fprintf(f,"Time %ld: VoxelA (%lf,%lf)\n",it->getTimestamp(),it->getMean(),it->getVariance());
+
+	}
+
+	fclose(f);
+
+
 	delete tree;
 	UDEBUG("");
 }
@@ -142,18 +161,26 @@ Transform OdometryBOW::computeTransform(
 	int correspondences = 0;
 	int nFeatures = 0;
 
+
 	const Signature * previousSignature = _memory->getLastWorkingSignature();
 	if(_memory->update(data))
 	{
 		const Signature * newSignature = _memory->getLastWorkingSignature();
 		if(newSignature)
 		{
+
+
 			nFeatures = (int)newSignature->getWords().size();
 			if(this->isInfoDataFilled() && info)
 			{
 				info->words = newSignature->getWords();
 			}
 		}
+
+		Eigen::Vector4d translation = getPose().toEigen4d().matrix()*Eigen::Vector4d(0,0,0,1);
+		count_t++;
+		this->cameraPositionError += translation.norm();
+		UINFO("Sanity Compare txyz = %f %f %f", translation(0),translation(1),translation(2));
 
 		if(previousSignature && newSignature)
 		{
@@ -197,9 +224,9 @@ Transform OdometryBOW::computeTransform(
 						{
 							//PnPRansac
 							cv::Mat K = (cv::Mat_<double>(3,3) <<
-								data.fx(), 0, data.cx(),
-								0, data.fy()>0?data.fy():data.fx(), data.cy(),
-								0, 0, 1);
+									data.fx(), 0, data.cx(),
+									0, data.fy()>0?data.fy():data.fx(), data.cy(),
+											0, 0, 1);
 							Transform guess = (this->getPose() * data.localTransform()).inverse();
 							cv::Mat R = (cv::Mat_<double>(3,3) <<
 									(double)guess.r11(), (double)guess.r12(), (double)guess.r13(),
@@ -227,8 +254,8 @@ Transform OdometryBOW::computeTransform(
 							{
 								cv::Rodrigues(rvec, R);
 								Transform pnp(R.at<double>(0,0), R.at<double>(0,1), R.at<double>(0,2), tvec.at<double>(0),
-											   R.at<double>(1,0), R.at<double>(1,1), R.at<double>(1,2), tvec.at<double>(1),
-											   R.at<double>(2,0), R.at<double>(2,1), R.at<double>(2,2), tvec.at<double>(2));
+										R.at<double>(1,0), R.at<double>(1,1), R.at<double>(1,2), tvec.at<double>(1),
+										R.at<double>(2,0), R.at<double>(2,1), R.at<double>(2,2), tvec.at<double>(2));
 
 								// make it incremental
 								transform = (data.localTransform() * pnp * this->getPose()).inverse();
@@ -284,14 +311,30 @@ Transform OdometryBOW::computeTransform(
 						// Also! the localMap_ have points not in camera frame anymore (in local map frame), so filtering
 						// by depth here is wrong!
 						std::set<int> uniqueCorrespondences;
-						util3d::findCorrespondencesWithOctree(
-								tree,
-								localMap_,
-								newSignature->getWords3(),
-								*inliers1,
-								*inliers2,
-								0,
-								&uniqueCorrespondences);
+						if( useOctree ){
+							util3d::findCorrespondencesWithOctree(
+									tree,
+									this->varianceThr,
+									localMap_,
+									newSignature->getWords3(),
+									*inliers1,
+									*inliers2,
+									0,
+									&uniqueCorrespondences);
+
+						}
+						else{
+
+							util3d::findCorrespondences(
+									localMap_,
+									newSignature->getWords3(),
+									*inliers1,
+									*inliers2,
+									0,
+									&uniqueCorrespondences);
+
+						}
+
 
 						UDEBUG("localMap=%d, new=%d, unique correspondences=%d", (int)localMap_.size(), (int)newSignature->getWords3().size(), (int)uniqueCorrespondences.size());
 
@@ -314,13 +357,19 @@ Transform OdometryBOW::computeTransform(
 									&inliersV,
 									&variance);
 
+
 							inliers = (int)inliersV.size();
 							if(!t.isNull() && inliers >= this->getMinInliers())
 							{
 								// make it incremental
 								transform = this->getPose().inverse() * t;
-
 								UDEBUG("Odom transform = %s", transform.prettyPrint().c_str());
+
+								//								Eigen::Vector4d translation = t.toEigen4d().matrix()*Eigen::Vector4d(0,0,0,1);
+								//								count_t++;
+								//								this->cameraPositionError += translation.norm();
+								//								UINFO("Odom transform = %s", t.prettyPrint().c_str());
+								//								UINFO("Sanity Compare txyz = %f %f %f", translation(0),translation(1),translation(2));
 							}
 							else
 							{
@@ -368,9 +417,11 @@ Transform OdometryBOW::computeTransform(
 					for(std::list<int>::iterator iter = removedPts.begin(); iter!=removedPts.end(); ++iter)
 					{
 						pcl::PointXYZ pt = localMap_.find(*iter)->second;
-						UINFO("Removing point %f %f %f",pt.x, pt.y, pt.z );
 
-						tree->deleteNode(octomap::point3d(pt.x, pt.y, pt.z ));
+						//if( tree->deleteNode(octomap::point3d(pt.x, pt.y, pt.z )) ){
+						//	UINFO("Removing point %f %f %f",pt.x, pt.y, pt.z );
+
+						//}
 						localMap_.erase(*iter);
 					}
 				}
@@ -384,6 +435,8 @@ Transform OdometryBOW::computeTransform(
 				// update local map
 				std::list<int> uniques = uUniqueKeys(newSignature->getWords3());
 				Transform t = this->getPose()*output;
+				octomap::Pointcloud cloud;
+
 				for(std::list<int>::iterator iter = uniques.begin(); iter!=uniques.end(); ++iter)
 				{
 					// Only add unique words not in local map
@@ -397,7 +450,11 @@ Transform OdometryBOW::computeTransform(
 							{
 								pcl::PointXYZ pt2 = util3d::transformPoint(pt, t);
 								localMap_.insert(std::make_pair(*iter, pt2));
-								tree->updateNode(octomap::point3d(pt2.x,pt2.y,pt2.z), true);
+
+								//if( pt2.x == pt2.x && pt2.y == pt2.y && pt2.z == pt2.z )
+								//	cloud.push_back(octomap::point3d(pt2.x,pt2.y,pt2.z));
+
+
 							}
 						}
 					}
@@ -405,6 +462,24 @@ Transform OdometryBOW::computeTransform(
 					{
 						localMap_.erase(*iter);
 					}
+
+					const pcl::PointXYZ & pt = newSignature->getWords3().find(*iter)->second;
+					if(pcl::isFinite(pt))
+					{
+						pcl::PointXYZ pt2 = util3d::transformPoint(pt, t);
+						if( pt2.x == pt2.x && pt2.y == pt2.y && pt2.z == pt2.z )
+							cloud.push_back(octomap::point3d(pt2.x,pt2.y,pt2.z));
+
+					}
+				}
+
+				if( cloud.size() ) {
+					Eigen::Vector4d translation = t.toEigen4d().matrix()*Eigen::Vector4d(0,0,0,1);
+					this->cameraPositionError += translation.norm();
+					UINFO("Odom transform = %s", t.prettyPrint().c_str());
+					UINFO("Sanity Compare txyz = %f %f %f", translation(0),translation(1),translation(2));
+					tree->insertPointCloud(cloud,octomap::point3d(translation(0),translation(1),translation(2)));
+
 				}
 			}
 		}
@@ -419,6 +494,7 @@ Transform OdometryBOW::computeTransform(
 				output.setIdentity();
 
 				Transform t = this->getPose(); // initial pose maybe not identity...
+				octomap::Pointcloud cloud;
 				for(std::list<int>::iterator iter = uniques.begin(); iter!=uniques.end(); ++iter)
 				{
 					// Only add unique words
@@ -429,13 +505,30 @@ Transform OdometryBOW::computeTransform(
 						{
 							pcl::PointXYZ pt2 = util3d::transformPoint(pt, t);
 							localMap_.insert(std::make_pair(*iter, pt2));
-							tree->updateNode(octomap::point3d(pt2.x,pt2.y,pt2.z), true);
+
 						}
 						else
 						{
 							++count;
 						}
 					}
+					const pcl::PointXYZ & pt = newSignature->getWords3().find(*iter)->second;
+					if(pcl::isFinite(pt))
+					{
+						pcl::PointXYZ pt2 = util3d::transformPoint(pt, t);
+						if( pt2.x == pt2.x && pt2.y == pt2.y && pt2.z == pt2.z )
+							cloud.push_back(octomap::point3d(pt2.x,pt2.y,pt2.z));
+
+					}
+
+				}
+				if( cloud.size() ) {
+					Eigen::Vector4d translation = t.toEigen4d().matrix()*Eigen::Vector4d(0,0,0,1);
+					this->cameraPositionError += translation.norm();
+					UINFO("Odom transform = %s", t.prettyPrint().c_str());
+					UINFO("Sanity Compare txyz = %f %f %f", translation(0),translation(1),translation(2));
+					tree->insertPointCloud(cloud,octomap::point3d(translation(0),translation(1),translation(2)));
+
 				}
 			}
 			else
@@ -461,13 +554,14 @@ Transform OdometryBOW::computeTransform(
 	UINFO("Odom update time = %fs lost=%s features=%d inliers=%d/%d variance=%f local_map=%d dict=%d nodes=%d",
 			timer.elapsed(),
 			output.isNull()?"true":"false",
-			nFeatures,
-			inliers,
-			correspondences,
-			variance,
-			(int)localMap_.size(),
-			(int)_memory->getVWDictionary()->getVisualWords().size(),
-			(int)_memory->getStMem().size());
+					nFeatures,
+					inliers,
+					correspondences,
+					variance,
+					(int)localMap_.size(),
+					(int)_memory->getVWDictionary()->getVisualWords().size(),
+					(int)_memory->getStMem().size());
+
 	return output;
 }
 

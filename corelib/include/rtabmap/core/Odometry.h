@@ -29,6 +29,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define ODOMETRY_H_
 
 #include "rtabmap/core/OcTreeDynamicMap.h"
+//#include "octomap/OcTreeStamped.h"
 
 #include <rtabmap/core/RtabmapExp.h>
 
@@ -101,6 +102,14 @@ public:
 	const std::multimap<int, pcl::PointXYZ> & getLocalMap() const {return localMap_;}
 	const Memory * getMemory() const {return _memory;}
 
+	void setUseOctree(bool useOctree){
+		this->useOctree = useOctree;
+	}
+
+	void setVarianceThr(double varianceThr){
+		this->varianceThr = varianceThr;
+	}
+
 private:
 	virtual Transform computeTransform(const SensorData & image, OdometryInfo * info = 0);
 
@@ -111,6 +120,9 @@ private:
 	Memory * _memory;
 	std::multimap<int, pcl::PointXYZ> localMap_;
 	octomap::OcTreeDynamic* tree;
+	double cameraPositionError;
+	double varianceThr;
+	bool useOctree;
 };
 
 class RTABMAP_EXP OdometryOpticalFlow : public Odometry
@@ -198,6 +210,8 @@ public:
 			float correspondenceRatio = 0.7f,
 			bool pointToPlane = true,
 			const ParametersMap & odometryParameter = rtabmap::ParametersMap());
+
+	virtual ~OdometryICP();
 	virtual void reset(const Transform & initialPose = Transform::getIdentity());
 
 private:
@@ -214,6 +228,11 @@ private:
 
 	pcl::PointCloud<pcl::PointNormal>::Ptr _previousCloudNormal; // for point ot plane
 	pcl::PointCloud<pcl::PointXYZ>::Ptr _previousCloud; // for point to point
+
+	octomap::OcTreeDynamic* localOctomap;
+	double cameraPositionError;
+	double varianceThr;
+	bool useOctree;
 };
 
 } /* namespace rtabmap */
